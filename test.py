@@ -1,10 +1,17 @@
 #-*- coding:utf-8 -*-
 
+import sys
 
 def main():
 
-   print u'あいうえお'.encode('cp932')
-   print u'あいうえお'.encode('cp932').decode('cp932').encode('utf-8')
+
+    if len(sys.argv) > 1:
+        codec = sys.argv[1]
+    else:
+        codec = 'sjis'
+
+
+    print u'あいうえお'.encode(codec)
 
 
 
