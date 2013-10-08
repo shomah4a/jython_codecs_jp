@@ -10,7 +10,6 @@ def main():
     else:
         codec = 'sjis'
 
-
     print u'あいうえお'.encode(codec)
 
 

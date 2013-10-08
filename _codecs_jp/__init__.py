@@ -19,6 +19,10 @@ def wrap(s):
 def unicode2str(s, code):
     u'''
     unicode 文字列を code で指定した文字コードの文字列に変換
+
+    >>> repr(unicode2str(u'あいうえお'), 'Shift_JIS')
+    '\x82\xa0\x82\xa2\x82\xa4\x82\xa6\x82\xa8'
+
     '''
 
     sjis = java.nio.charset.Charset.forName(code)
@@ -39,6 +43,12 @@ def unicode2str(s, code):
 def str2unicode(s, code):
     u'''
     文字列を code で指定した文字コードを使って unicode 文字列に変換
+
+    >>> print str2unicode('\x82\xa0\x82\xa2\x82\xa4\x82\xa6\x82\xa8', 'Shift_JIS')
+    u'\u3042\u3044\u3046\u3048\u304a'
+
+    すなわち u'あいうえお'
+
     '''
 
     buf = java.nio.ByteBuffer.allocate(len(s) * 4)
